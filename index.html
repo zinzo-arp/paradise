@@ -3,76 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paradise RP | Cyber City</title>
+<title>Paradise Roleplay | Official City</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 
 body{
   min-height:100vh;
-  background:
-    radial-gradient(circle at top,#00ffd5 0%,transparent 40%),
-    radial-gradient(circle at bottom,#6f00ff 0%,transparent 40%),
-    #05060a;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:#fff;
-  overflow-x:hidden;
 }
 
-/* ===== NAV ===== */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 30px;
+/* ===== HEADER ===== */
+.top{
+  text-align:center;
+  padding:50px 20px 30px;
 }
 
 .logo{
-  font-size:1.6rem;
-  font-weight:700;
-  color:#00ffd5;
-  letter-spacing:1px;
+  width:150px;
+  max-width:80%;
+  margin-bottom:15px;
+  animation:float 3s ease-in-out infinite;
 }
 
-nav a{
-  color:#aaa;
-  text-decoration:none;
-  margin-left:20px;
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
 }
 
-nav a:hover{color:#00ffd5}
+.top h1{
+  font-size:3rem;
+  color:#00ffcc;
+}
+
+.top p{opacity:.85}
 
 /* ===== HERO ===== */
 .hero{
+  margin:20px;
+  padding:60px 25px;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.35));
   text-align:center;
-  padding:80px 20px 60px;
 }
 
-.hero h1{
-  font-size:3.2rem;
-  background:linear-gradient(90deg,#00ffd5,#6f00ff);
-  -webkit-background-clip:text;
-  color:transparent;
+.hero h2{
+  font-size:2.4rem;
+  color:#00ffcc;
 }
 
-.hero p{
-  margin:15px 0 30px;
-  opacity:.8;
-}
+.hero p{margin:15px 0 25px}
 
-.hero button{
-  padding:16px 40px;
-  border-radius:40px;
+/* ===== BUTTONS ===== */
+.btn{
+  padding:14px 34px;
+  border-radius:30px;
   border:none;
-  background:linear-gradient(90deg,#00ffd5,#6f00ff);
-  font-weight:700;
+  font-weight:bold;
   cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
 }
 
-/* ===== GLASS CARDS ===== */
+.discord{background:#5865F2;color:#fff}
+.whatsapp{background:#25D366;color:#000}
+
+/* ===== CONTENT ===== */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:30px 20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
@@ -80,59 +82,53 @@ nav a:hover{color:#00ffd5}
 
 .card{
   background:rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
   border-radius:18px;
   padding:25px;
-  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
-.card h2{
-  color:#00ffd5;
+.card h3{
+  color:#00ffcc;
   margin-bottom:10px;
 }
 
-.online{color:#00ffd5}
-.offline{color:#ff4d6d}
+.online{color:#00ffcc}
+.offline{color:#ff4d4d}
 
-/* ===== FLOATING CONTROLS ===== */
+/* ===== FLOATING ===== */
 .floating{
   position:fixed;
-  right:20px;
-  bottom:20px;
+  right:15px;
+  bottom:15px;
   display:flex;
   flex-direction:column;
-  gap:12px;
-  z-index:99;
+  gap:10px;
+  z-index:999;
 }
 
-.floating button,a{
+.float-btn{
   padding:12px 18px;
   border-radius:30px;
+  font-weight:bold;
   border:none;
   cursor:pointer;
-  font-weight:600;
-  background:#111;
-  color:#fff;
-  box-shadow:0 0 20px rgba(0,255,213,.3);
   text-decoration:none;
-}
-
-.floating button:hover,
-.floating a:hover{
-  background:#00ffd5;
-  color:#000;
+  color:#fff;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
 }
 
 /* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:25px;
-  opacity:.6;
+  opacity:.7;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
-  .hero h1{font-size:2.4rem}
+  .top h1{font-size:2.2rem}
+  .hero h2{font-size:2rem}
+  .logo{width:110px}
 }
 </style>
 </head>
@@ -144,55 +140,54 @@ footer{
   <source src="RAIZHELL, CLOUD ZERO - KILL ZONE [NCS Release].mp3" type="audio/mpeg">
 </audio>
 
-<nav>
-  <div class="logo">PARADISE RP</div>
-  <div>
-    <a href="#">Home</a>
-    <a href="#">Rules</a>
-    <a href="#">Apply</a>
-  </div>
-</nav>
+<!-- HEADER -->
+<div class="top">
+  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" alt="Paradise Roleplay Logo" class="logo">
+  <h1>Paradise Roleplay</h1>
+  <p>Official SA-MP Mobile Roleplay City</p>
+</div>
 
-<section class="hero">
-  <h1>Welcome to Paradise City</h1>
-  <p>Next-generation SA-MP Mobile Roleplay Experience</p>
-  <button onclick="copyIP()">CONNECT NOW</button>
+<!-- HERO -->
+<div class="hero">
+  <h2>Enter the Paradise City</h2>
+  <p>Serious roleplay • Mobile support • Active staff</p>
+  <button class="btn discord" onclick="copyIP()">CONNECT NOW</button>
   <p id="copy-msg"></p>
-</section>
+</div>
 
-<section class="container">
+<!-- CONTENT -->
+<div class="container">
 
   <div class="card">
-    <h2>Server Status</h2>
+    <h3>Server Status</h3>
     <p id="status">Loading...</p>
     <p>Players: <strong id="players">0</strong></p>
   </div>
 
   <div class="card">
-    <h2>Online Players</h2>
+    <h3>Online Players</h3>
     <ul id="player-list"></ul>
   </div>
 
   <div class="card">
-    <h2>Why Paradise?</h2>
-    <p>
-      ✔ Serious Roleplay<br>
-      ✔ Mobile Friendly<br>
-      ✔ Active Staff<br>
-      ✔ Events & Gangs
-    </p>
+    <h3>Why Paradise?</h3>
+    ✔ Serious Roleplay<br>
+    ✔ Custom Jobs<br>
+    ✔ Police / Gangs<br>
+    ✔ Events & Economy
   </div>
 
-</section>
+</div>
 
+<!-- FLOATING -->
 <div class="floating">
-  <a href="https://discord.gg/YOURDISCORD" target="_blank">Discord</a>
-  <a href="https://chat.whatsapp.com/YOURWHATSAPP" target="_blank">WhatsApp</a>
-  <button onclick="toggleMusic()">🎵 Music</button>
+  <a href="https://discord.gg/YOURDISCORD" class="float-btn discord" target="_blank">Discord</a>
+  <a href="https://chat.whatsapp.com/YOURWHATSAPP" class="float-btn whatsapp" target="_blank">WhatsApp</a>
+  <button class="float-btn discord" onclick="toggleMusic()">🎵 Music</button>
 </div>
 
 <footer>
-© 2025 Paradise Roleplay — Cyber City
+© 2025 Paradise Roleplay | All Rights Reserved
 </footer>
 
 <script>
@@ -205,7 +200,7 @@ function toggleMusic(){music.paused?music.play():music.pause()}
 // 📋 COPY IP
 function copyIP(){
   navigator.clipboard.writeText('151.243.226.80:7777');
-  document.getElementById('copy-msg').innerText='✅ IP Copied';
+  document.getElementById('copy-msg').innerText='✅ Server IP Copied';
 }
 
 // 🌐 SA-MP API
@@ -215,24 +210,29 @@ const playersEl=document.getElementById('players');
 const listEl=document.getElementById('player-list');
 
 function loadData(){
-  fetch(API).then(r=>r.json()).then(d=>{
-    if(d.online){
-      statusEl.innerHTML='🟢 Online';
-      statusEl.className='online';
-      playersEl.innerText=`${d.players}/${d.maxplayers}`;
-      listEl.innerHTML='';
-      (d.players_list||[]).forEach(p=>{
-        const li=document.createElement('li');
-        li.textContent=p.name;
-        listEl.appendChild(li);
-      });
-    }else{
-      statusEl.innerHTML='🔴 Offline';
-      statusEl.className='offline';
-      playersEl.innerText='0';
-      listEl.innerHTML='<li>Server Offline</li>';
-    }
-  });
+  fetch(API)
+    .then(r=>r.json())
+    .then(d=>{
+      if(d.online){
+        statusEl.innerHTML='🟢 Online';
+        statusEl.className='online';
+        playersEl.innerText=`${d.players}/${d.maxplayers}`;
+        listEl.innerHTML='';
+        (d.players_list||[]).forEach(p=>{
+          const li=document.createElement('li');
+          li.textContent=p.name;
+          listEl.appendChild(li);
+        });
+      }else{
+        statusEl.innerHTML='🔴 Offline';
+        statusEl.className='offline';
+        playersEl.innerText='0';
+        listEl.innerHTML='<li>Server Offline</li>';
+      }
+    })
+    .catch(()=>{
+      statusEl.innerHTML='⚠ Unavailable';
+    });
 }
 
 loadData();
