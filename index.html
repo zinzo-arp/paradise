@@ -1,209 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paradise Roleplay | SA-MP Mobile Server</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paradise Roleplay | SA-MP Mobile Server</title>
 
-    body { background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:#fff; min-height:100vh }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 
-    header { padding:40px 20px; text-align:center }
-    header h1 { font-size:3rem; color:#00ffcc }
-    header p { opacity:.9 }
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  min-height:100vh;
+}
 
-    .server-logo { width:140px; margin-bottom:15px; animation:logoFloat 3s ease-in-out infinite }
-    @keyframes logoFloat { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
+header{text-align:center;padding:40px 20px}
+header h1{font-size:3rem;color:#00ffcc}
+header p{opacity:.9}
 
-    .banner {
-      text-align:center;
-      padding:60px 20px;
-      background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.3));
-      animation:fadeIn 1.5s ease
-    }
+.server-logo{
+  width:140px;
+  margin-bottom:15px;
+  animation:logoFloat 3s ease-in-out infinite;
+}
 
-    .banner h2 { font-size:2.5rem; color:#00ffcc }
-    .banner p { margin:10px 0 20px }
+@keyframes logoFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
 
-    .container { max-width:1100px; margin:auto; padding:20px }
+.banner{
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.3));
+}
 
-    .card { background:rgba(255,255,255,.08); border-radius:16px; padding:25px; margin-bottom:20px; box-shadow:0 10px 30px rgba(0,0,0,.3) }
-    .card h2 { color:#00ffcc; margin-bottom:10px }
+.banner h2{font-size:2.5rem;color:#00ffcc}
+.banner p{margin:10px 0 20px}
 
-    .btn { padding:14px 32px; border-radius:30px; font-weight:bold; text-decoration:none; display:inline-block }
-    .discord { background:#5865F2; color:#fff }
-    .whatsapp { background:#25D366; color:#000 }
+.container{max-width:1100px;margin:auto;padding:20px}
 
-    .floating-buttons { position:fixed; right:15px; bottom:15px; display:flex; flex-direction:column; gap:10px; z-index:999 }
-    .float-btn { padding:12px 18px; border-radius:30px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 6px 20px rgba(0,0,0,.4) }
+.card{
+  background:rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
 
-    footer { text-align:center; padding:20px; opacity:.7 }
+.card h2{color:#00ffcc;margin-bottom:10px}
 
-    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-    @media(max-width:600px){ header h1{font-size:2.2rem} .banner h2{font-size:2rem} .server-logo{width:100px} }
-  </style>
+.btn{
+  padding:14px 32px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+  cursor:pointer;
+  border:none;
+}
+
+.discord{background:#5865F2;color:#fff}
+.whatsapp{background:#25D366;color:#000}
+
+.online{color:#00ffcc;text-shadow:0 0 10px #00ffcc}
+.offline{color:#ff4d4d;text-shadow:0 0 10px #ff4d4d}
+
+.floating-buttons{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:999;
+}
+
+.float-btn{
+  padding:12px 18px;
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  border:none;
+  cursor:pointer;
+}
+
+footer{text-align:center;padding:20px;opacity:.7}
+
+@media(max-width:600px){
+  header h1{font-size:2.2rem}
+  .banner h2{font-size:2rem}
+  .server-logo{width:100px}
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" alt="Paradise Roleplay Logo" class="server-logo" />
-    <h1>Paradise Roleplay</h1>
-    <p>SA-MP Mobile Roleplay Server</p>
-  </header>
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+  <source src="RAIZHELL, CLOUD ZERO - KILL ZONE [NCS Release].mp3" type="audio/mpeg">
+</audio>
 
-  <div class="floating-buttons">
-    <a href="https://discord.gg/YOURDISCORD" target="_blank" class="float-btn discord">Discord</a>
-    <a href="https://chat.whatsapp.com/YOURWHATSAPP" target="_blank" class="float-btn whatsapp">WhatsApp</a>
-  </div>
+<header>
+  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="server-logo">
+  <h1>Paradise Roleplay</h1>
+  <p>SA-MP Mobile Roleplay Server</p>
+</header>
 
-  <div class="banner">
-    <h2>Welcome to Paradise Roleplay</h2>
-    <p>The ultimate SA-MP Mobile Roleplay experience</p>
-    <a href="#join" class="btn discord">Join the City</a>
-  </div>
+<div class="floating-buttons">
+  <a href="https://discord.gg/YOURDISCORD" class="float-btn discord" target="_blank">Discord</a>
+  <a href="https://chat.whatsapp.com/YOURWHATSAPP" class="float-btn whatsapp" target="_blank">WhatsApp</a>
+  <button class="float-btn discord" onclick="toggleMusic()">🎵 Music</button>
+</div>
 
-  <div class="container">
+<div class="banner">
+  <h2>Welcome to Paradise Roleplay</h2>
+  <p>The ultimate SA-MP Mobile Roleplay experience</p>
+  <a class="btn discord" href="#join">Join the City</a>
+</div>
 
-    <div class="card">
-      <h2>Live Server Status</h2>
-      <p id="server-status">Loading...</p>
-      <p>Players Online: <strong id="player-count">0</strong></p>
-    </div>
+<div class="container">
 
-    <div class="card">
-      <h2>Online Players</h2>
-      <p>Live player list coming soon (API supported)</p>
-    </div>
+<div class="card">
+  <h2>Live Server Status</h2>
+  <p id="server-status">Loading...</p>
+  <p>Players Online: <strong id="player-count">0</strong></p>
+</div>
 
-    <div class="card">
-      <h2>Top Players Leaderboard</h2>
-      <p>• Player1 – Level 25<br>• Player2 – Level 22<br>• Player3 – Level 20</p>
-    </div>
+<div class="card">
+  <h2>Online Players</h2>
+  <ul id="player-list"></ul>
+</div>
 
-    <div class="card">
-      <h2>Rules</h2>
-      <p>
-        • Respect all players<br>
-        • No cheating or exploiting<br>
-        • Follow roleplay rules at all times<br>
-        • Listen to admins<br>
-        • Have fun and play fair
-      </p>
-    </div>
+<div class="card">
+  <h2>How to Join</h2>
+  <p>
+    1. Install GTA San Andreas<br>
+    2. Install SA-MP Mobile<br>
+    3. Add server IP and connect
+  </p>
+  <button class="btn discord" onclick="copyIP()">Copy Server IP</button>
+  <p id="copy-msg"></p>
+</div>
 
-    <div class="card">
-      <h2>Apply for Staff</h2>
-      <p>
-        Want to become an admin or helper?<br>
-        Join our Discord server and apply in the <strong>#staff-applications</strong> channel.
-      </p>
-      <div class="btn-group">
-        <a class="btn discord" href="https://discord.gg/YOURDISCORD" target="_blank">Apply on Discord</a>
-      </div>
-    </div>
+</div>
 
-    <div class="card">
-      <h2>Top Roleplay Features</h2>
-      <p>
-        ✔ Jobs & Businesses<br>
-        ✔ Police / Army / Gangs<br>
-        ✔ Events & Giveaways<br>
-        ✔ Economy & Banking System<br>
-        ✔ Custom Maps & Vehicles
-      </p>
-    </div>
+<footer>
+© 2025 Paradise Roleplay | All Rights Reserved
+</footer>
 
-    <div class="card">
-      <h2>Download SA-MP Mobile</h2>
-      <p>Download SA-MP mobile client and start your roleplay journey.</p>
-      <div class="btn-group">
-        <a class="btn whatsapp" href="#" target="_blank">Download Now</a>
-      </div>
-    </div>
+<script>
+// 🎵 MUSIC CONTROL
+const music = document.getElementById('bg-music');
+music.volume = 0.25;
 
-    <div class="card">
-      <h2>How to Join</h2>
-      <p>
-        1. Install GTA San Andreas<br />
-        2. Install SA-MP client (mobile supported)<br />
-        3. Add the server IP and connect
-      </p>
-      <div class="btn-group">
-        <a class="btn discord" href="https://discord.gg/YOURDISCORD" target="_blank">Join Our Discord</a>
-        <a class="btn whatsapp" href="https://chat.whatsapp.com/YOURWHATSAPP" target="_blank">Join WhatsApp Group</a>
-      </div>
-    </div>
+// autoplay fix
+document.addEventListener('click', () => {
+  if (music.paused) music.play();
+}, { once: true });
 
-  </div>
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  }
+}
 
-  <footer>
-    © 2025 Paradise Roleplay | All Rights Reserved
-  </footer>
+// SA-MP API (CORS FIXED)
+const API_URL = 'https://corsproxy.io/?https://api.samp-servers.net/v2/server/151.243.226.80:7777';
 
-  <script>
-    // Simple animated background particles
-    const canvas = document.createElement('canvas');
-    canvas.style.position = 'fixed';
-    canvas.style.top = 0;
-    canvas.style.left = 0;
-    canvas.style.zIndex = '-1';
-    document.body.appendChild(canvas);
+const statusEl = document.getElementById('server-status');
+const playerCountEl = document.getElementById('player-count');
+const playerListEl = document.getElementById('player-list');
 
-    const ctx = canvas.getContext('2d');
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+function loadServerData(){
+  fetch(API_URL)
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.online){
+        statusEl.innerHTML='🟢 Server Online';
+        statusEl.className='online';
+        playerCountEl.innerHTML=`${data.players} / ${data.maxplayers}`;
 
-    const particles = Array.from({ length: 60 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.5,
-      dy: (Math.random() - 0.5) * 0.5
-    }));
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(0,255,204,0.6)';
-      particles.forEach(p => {
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // REAL live SA-MP server status using public API
-    const status = document.getElementById('server-status');
-    const players = document.getElementById('player-count');
-
-    fetch('https://api.samp-servers.net/v2/server/151.243.226.80:7777')
-      .then(res => res.json())
-      .then(data => {
-        if (data.online) {
-          status.innerHTML = '🟢 Server Online';
-          players.innerHTML = data.players + ' / ' + data.maxplayers;
-        } else {
-          status.innerHTML = '🔴 Server Offline';
-          players.innerHTML = '0';
+        playerListEl.innerHTML='';
+        if(data.players_list && data.players_list.length){
+          data.players_list.forEach(p=>{
+            const li=document.createElement('li');
+            li.textContent=`${p.name} (Score: ${p.score})`;
+            playerListEl.appendChild(li);
+          });
+        }else{
+          playerListEl.innerHTML='<li>No players online</li>';
         }
-      })
-      .catch(() => {
-        status.innerHTML = '⚠ Unable to fetch server status';
-        players.innerHTML = 'N/A';
-      });
-    if (status) {
-      status.innerHTML = '🟢 Server Online | Paradise Roleplay';
-    }
-  </script>
+      }else{
+        statusEl.innerHTML='🔴 Server Offline';
+        statusEl.className='offline';
+        playerCountEl.innerHTML='0';
+        playerListEl.innerHTML='<li>Server offline</li>';
+      }
+    })
+    .catch(()=>{
+      statusEl.innerHTML='⚠ Status unavailable';
+      playerCountEl.innerHTML='N/A';
+    });
+}
+
+loadServerData();
+setInterval(loadServerData,30000);
+
+// Copy IP
+function copyIP(){
+  navigator.clipboard.writeText('151.243.226.80:7777');
+  document.getElementById('copy-msg').innerText='✅ IP Copied!';
+}
+</script>
+
 </body>
 </html>
