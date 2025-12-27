@@ -1,99 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Paradise Roleplay | SA-MP Mobile Server</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradise RP | Cyber City</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 
 body{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
   min-height:100vh;
+  background:
+    radial-gradient(circle at top,#00ffd5 0%,transparent 40%),
+    radial-gradient(circle at bottom,#6f00ff 0%,transparent 40%),
+    #05060a;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-header{text-align:center;padding:40px 20px}
-header h1{font-size:3rem;color:#00ffcc}
-header p{opacity:.9}
-
-.server-logo{
-  width:140px;
-  margin-bottom:15px;
-  animation:logoFloat 3s ease-in-out infinite;
+/* ===== NAV ===== */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 30px;
 }
 
-@keyframes logoFloat{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
+.logo{
+  font-size:1.6rem;
+  font-weight:700;
+  color:#00ffd5;
+  letter-spacing:1px;
 }
 
-.banner{
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+nav a:hover{color:#00ffd5}
+
+/* ===== HERO ===== */
+.hero{
   text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.3));
+  padding:80px 20px 60px;
 }
 
-.banner h2{font-size:2.5rem;color:#00ffcc}
-.banner p{margin:10px 0 20px}
+.hero h1{
+  font-size:3.2rem;
+  background:linear-gradient(90deg,#00ffd5,#6f00ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-.container{max-width:1100px;margin:auto;padding:20px}
+.hero p{
+  margin:15px 0 30px;
+  opacity:.8;
+}
+
+.hero button{
+  padding:16px 40px;
+  border-radius:40px;
+  border:none;
+  background:linear-gradient(90deg,#00ffd5,#6f00ff);
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ===== GLASS CARDS ===== */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
 
 .card{
   background:rgba(255,255,255,.08);
-  border-radius:16px;
+  backdrop-filter:blur(14px);
+  border-radius:18px;
   padding:25px;
-  margin-bottom:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  border:1px solid rgba(255,255,255,.12);
 }
 
-.card h2{color:#00ffcc;margin-bottom:10px}
-
-.btn{
-  padding:14px 32px;
-  border-radius:30px;
-  font-weight:bold;
-  text-decoration:none;
-  display:inline-block;
-  cursor:pointer;
-  border:none;
+.card h2{
+  color:#00ffd5;
+  margin-bottom:10px;
 }
 
-.discord{background:#5865F2;color:#fff}
-.whatsapp{background:#25D366;color:#000}
+.online{color:#00ffd5}
+.offline{color:#ff4d6d}
 
-.online{color:#00ffcc;text-shadow:0 0 10px #00ffcc}
-.offline{color:#ff4d4d;text-shadow:0 0 10px #ff4d4d}
-
-.floating-buttons{
+/* ===== FLOATING CONTROLS ===== */
+.floating{
   position:fixed;
-  right:15px;
-  bottom:15px;
+  right:20px;
+  bottom:20px;
   display:flex;
   flex-direction:column;
-  gap:10px;
-  z-index:999;
+  gap:12px;
+  z-index:99;
 }
 
-.float-btn{
+.floating button,a{
   padding:12px 18px;
   border-radius:30px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 6px 20px rgba(0,0,0,.4);
   border:none;
   cursor:pointer;
+  font-weight:600;
+  background:#111;
+  color:#fff;
+  box-shadow:0 0 20px rgba(0,255,213,.3);
+  text-decoration:none;
 }
 
-footer{text-align:center;padding:20px;opacity:.7}
+.floating button:hover,
+.floating a:hover{
+  background:#00ffd5;
+  color:#000;
+}
 
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:25px;
+  opacity:.6;
+}
+
+/* ===== MOBILE ===== */
 @media(max-width:600px){
-  header h1{font-size:2.2rem}
-  .banner h2{font-size:2rem}
-  .server-logo{width:100px}
+  .hero h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -105,119 +144,99 @@ footer{text-align:center;padding:20px;opacity:.7}
   <source src="RAIZHELL, CLOUD ZERO - KILL ZONE [NCS Release].mp3" type="audio/mpeg">
 </audio>
 
-<header>
-  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="server-logo">
-  <h1>Paradise Roleplay</h1>
-  <p>SA-MP Mobile Roleplay Server</p>
-</header>
+<nav>
+  <div class="logo">PARADISE RP</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Rules</a>
+    <a href="#">Apply</a>
+  </div>
+</nav>
 
-<div class="floating-buttons">
-  <a href="https://discord.gg/YOURDISCORD" class="float-btn discord" target="_blank">Discord</a>
-  <a href="https://chat.whatsapp.com/YOURWHATSAPP" class="float-btn whatsapp" target="_blank">WhatsApp</a>
-  <button class="float-btn discord" onclick="toggleMusic()">🎵 Music</button>
-</div>
-
-<div class="banner">
-  <h2>Welcome to Paradise Roleplay</h2>
-  <p>The ultimate SA-MP Mobile Roleplay experience</p>
-  <a class="btn discord" href="#join">Join the City</a>
-</div>
-
-<div class="container">
-
-<div class="card">
-  <h2>Live Server Status</h2>
-  <p id="server-status">Loading...</p>
-  <p>Players Online: <strong id="player-count">0</strong></p>
-</div>
-
-<div class="card">
-  <h2>Online Players</h2>
-  <ul id="player-list"></ul>
-</div>
-
-<div class="card">
-  <h2>How to Join</h2>
-  <p>
-    1. Install GTA San Andreas<br>
-    2. Install SA-MP Mobile<br>
-    3. Add server IP and connect
-  </p>
-  <button class="btn discord" onclick="copyIP()">Copy Server IP</button>
+<section class="hero">
+  <h1>Welcome to Paradise City</h1>
+  <p>Next-generation SA-MP Mobile Roleplay Experience</p>
+  <button onclick="copyIP()">CONNECT NOW</button>
   <p id="copy-msg"></p>
-</div>
+</section>
 
+<section class="container">
+
+  <div class="card">
+    <h2>Server Status</h2>
+    <p id="status">Loading...</p>
+    <p>Players: <strong id="players">0</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>Online Players</h2>
+    <ul id="player-list"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Why Paradise?</h2>
+    <p>
+      ✔ Serious Roleplay<br>
+      ✔ Mobile Friendly<br>
+      ✔ Active Staff<br>
+      ✔ Events & Gangs
+    </p>
+  </div>
+
+</section>
+
+<div class="floating">
+  <a href="https://discord.gg/YOURDISCORD" target="_blank">Discord</a>
+  <a href="https://chat.whatsapp.com/YOURWHATSAPP" target="_blank">WhatsApp</a>
+  <button onclick="toggleMusic()">🎵 Music</button>
 </div>
 
 <footer>
-© 2025 Paradise Roleplay | All Rights Reserved
+© 2025 Paradise Roleplay — Cyber City
 </footer>
 
 <script>
-// 🎵 MUSIC CONTROL
-const music = document.getElementById('bg-music');
-music.volume = 0.25;
+// 🎵 MUSIC
+const music=document.getElementById('bg-music');
+music.volume=0.25;
+document.addEventListener('click',()=>{if(music.paused)music.play()},{once:true});
+function toggleMusic(){music.paused?music.play():music.pause()}
 
-// autoplay fix
-document.addEventListener('click', () => {
-  if (music.paused) music.play();
-}, { once: true });
-
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-  }else{
-    music.pause();
-  }
-}
-
-// SA-MP API (CORS FIXED)
-const API_URL = 'https://corsproxy.io/?https://api.samp-servers.net/v2/server/151.243.226.80:7777';
-
-const statusEl = document.getElementById('server-status');
-const playerCountEl = document.getElementById('player-count');
-const playerListEl = document.getElementById('player-list');
-
-function loadServerData(){
-  fetch(API_URL)
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.online){
-        statusEl.innerHTML='🟢 Server Online';
-        statusEl.className='online';
-        playerCountEl.innerHTML=`${data.players} / ${data.maxplayers}`;
-
-        playerListEl.innerHTML='';
-        if(data.players_list && data.players_list.length){
-          data.players_list.forEach(p=>{
-            const li=document.createElement('li');
-            li.textContent=`${p.name} (Score: ${p.score})`;
-            playerListEl.appendChild(li);
-          });
-        }else{
-          playerListEl.innerHTML='<li>No players online</li>';
-        }
-      }else{
-        statusEl.innerHTML='🔴 Server Offline';
-        statusEl.className='offline';
-        playerCountEl.innerHTML='0';
-        playerListEl.innerHTML='<li>Server offline</li>';
-      }
-    })
-    .catch(()=>{
-      statusEl.innerHTML='⚠ Status unavailable';
-      playerCountEl.innerHTML='N/A';
-    });
-}
-
-loadServerData();
-setInterval(loadServerData,30000);
-
-// Copy IP
+// 📋 COPY IP
 function copyIP(){
   navigator.clipboard.writeText('151.243.226.80:7777');
-  document.getElementById('copy-msg').innerText='✅ IP Copied!';
+  document.getElementById('copy-msg').innerText='✅ IP Copied';
 }
+
+// 🌐 SA-MP API
+const API='https://corsproxy.io/?https://api.samp-servers.net/v2/server/151.243.226.80:7777';
+const statusEl=document.getElementById('status');
+const playersEl=document.getElementById('players');
+const listEl=document.getElementById('player-list');
+
+function loadData(){
+  fetch(API).then(r=>r.json()).then(d=>{
+    if(d.online){
+      statusEl.innerHTML='🟢 Online';
+      statusEl.className='online';
+      playersEl.innerText=`${d.players}/${d.maxplayers}`;
+      listEl.innerHTML='';
+      (d.players_list||[]).forEach(p=>{
+        const li=document.createElement('li');
+        li.textContent=p.name;
+        listEl.appendChild(li);
+      });
+    }else{
+      statusEl.innerHTML='🔴 Offline';
+      statusEl.className='offline';
+      playersEl.innerText='0';
+      listEl.innerHTML='<li>Server Offline</li>';
+    }
+  });
+}
+
+loadData();
+setInterval(loadData,30000);
 </script>
 
 </body>
