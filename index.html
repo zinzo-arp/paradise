@@ -6,7 +6,12 @@
 <title>Paradise Roleplay | Official City</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
 body{
   min-height:100vh;
@@ -15,10 +20,24 @@ body{
 }
 
 /* HEADER */
-.top{text-align:center;padding:50px 20px 30px}
-.logo{width:150px;margin-bottom:15px;animation:float 3s ease-in-out infinite}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
-.top h1{font-size:3rem;color:#00ffcc}
+.top{
+  text-align:center;
+  padding:50px 20px 30px;
+}
+.logo{
+  width:150px;
+  margin-bottom:15px;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+.top h1{
+  font-size:3rem;
+  color:#00ffcc;
+}
 .top p{opacity:.85}
 
 /* HERO */
@@ -26,13 +45,20 @@ body{
   margin:20px;
   padding:60px 25px;
   border-radius:20px;
-  background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.35));
+  background:linear-gradient(
+    135deg,
+    rgba(0,255,204,.15),
+    rgba(0,0,0,.35)
+  );
   text-align:center;
 }
-.hero h2{font-size:2.4rem;color:#00ffcc}
+.hero h2{
+  font-size:2.4rem;
+  color:#00ffcc;
+}
 .hero p{margin:15px 0 25px}
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
   padding:14px 34px;
   border-radius:30px;
@@ -40,77 +66,9 @@ body{
   font-weight:bold;
   cursor:pointer;
 }
-.discord{background:#5865F2;color:#fff}
-
-/* CONTENT */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
-.card h3{color:#00ffcc}
-
-/* NEWS */
-.news-card{
-  background:rgba(0,0,0,.3);
-  border-radius:14px;
-  overflow:hidden;
-  margin-top:15px;
-  cursor:pointer;
-  transition:.3s;
-}
-.news-card:hover{transform:scale(1.02)}
-.news-card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-}
-.news-content{padding:15px}
-.news-content h4{color:#00ffcc}
-.news-content span{font-size:.85rem;opacity:.7}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-.modal-box{
-  background:#111;
-  border-radius:18px;
-  max-width:500px;
-  width:90%;
-  overflow:hidden;
-}
-.modal-box img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-.modal-body{
-  padding:20px;
-}
-.modal-body h4{color:#00ffcc;margin-bottom:5px}
-.modal-body span{font-size:.85rem;opacity:.7}
-.modal-body p{margin-top:10px}
-.close{
-  text-align:right;
-  cursor:pointer;
-  font-size:1.4rem;
+.discord{
+  background:#5865F2;
+  color:#fff;
 }
 
 /* FLOATING */
@@ -130,10 +88,17 @@ body{
   cursor:pointer;
   color:#fff;
 }
-.whatsapp{background:#25D366;color:#000}
+.whatsapp{
+  background:#25D366;
+  color:#000;
+}
 
 /* FOOTER */
-footer{text-align:center;padding:25px;opacity:.7}
+footer{
+  text-align:center;
+  padding:25px;
+  opacity:.7;
+}
 </style>
 </head>
 
@@ -146,7 +111,7 @@ footer{text-align:center;padding:25px;opacity:.7}
 
 <!-- HEADER -->
 <div class="top">
-  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="logo">
+  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="logo" alt="Paradise Logo">
   <h1>Paradise Roleplay</h1>
   <p>Official SA-MP Roleplay City</p>
 </div>
@@ -159,14 +124,7 @@ footer{text-align:center;padding:25px;opacity:.7}
   <p id="copy-msg"></p>
 </div>
 
-<!-- CONTENT -->
-<div class="container">
-  <div class="card">
-    <h3>Latest News</h3>
-  </div>
-</div>
-
-<!-- FLOAT -->
+<!-- FLOATING BUTTONS -->
 <div class="floating">
   <a href="#" class="float-btn discord">Discord</a>
   <a href="#" class="float-btn whatsapp">WhatsApp</a>
@@ -178,31 +136,36 @@ footer{text-align:center;padding:25px;opacity:.7}
 </footer>
 
 <script>
-// MUSIC
-const music = document.getElementById("bg-music");
-music.volume = 0.25;
+document.addEventListener("DOMContentLoaded", () => {
 
-// Mobile autoplay fix
-document.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-  }
-}, { once: true });
+  const music = document.getElementById("bg-music");
+  music.volume = 0.25;
 
-// Toggle music
-function toggleMusic(){
-  if(music.paused){
-    music.play();
-  } else {
-    music.pause();
-  }
-}
+  // Play music after first user interaction (browser rule)
+  document.addEventListener("click", () => {
+    if (music.paused) {
+      music.play().catch(()=>{});
+    }
+  }, { once:true });
 
-// COPY IP
-function copyIP(){
-  navigator.clipboard.writeText('151.243.226.80:7777');
-  document.getElementById('copy-msg').innerText='✅ IP Copied';
-}
+  window.toggleMusic = function(){
+    if(music.paused){
+      music.play();
+    }else{
+      music.pause();
+    }
+  };
+
+  window.copyIP = function(){
+    const ip = "151.243.226.80:7777";
+    navigator.clipboard.writeText(ip).then(()=>{
+      document.getElementById("copy-msg").innerText = "✅ IP Copied";
+    }).catch(()=>{
+      document.getElementById("copy-msg").innerText = ip;
+    });
+  };
+
+});
 </script>
 
 </body>
