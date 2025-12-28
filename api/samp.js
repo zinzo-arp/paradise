@@ -1,13 +1,10 @@
 export default async function handler(req, res) {
     try {
-        // Replace with your SA-MP server IP
+        // Use a reliable SA-MP query API
         const serverIP = '151.243.226.80';
-
-        // Call public SA-MP API
         const apiResponse = await fetch(`https://samp-api.tk/server/${serverIP}`);
         const data = await apiResponse.json();
 
-        // Format data for your website
         const responseData = {
             online: data.online || false,
             players: data.players || 0,
