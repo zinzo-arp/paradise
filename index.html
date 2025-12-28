@@ -68,7 +68,6 @@
     <div class="features">
         <div class="feature-card"><h3 id="players">Loading...</h3><p>Online Players</p></div>
         <div class="feature-card"><h3 id="status">Checking...</h3><p>Server Status</p></div>
-        <div class="feature-card"><h3>24/7</h3><p>Uptime</p></div>
     </div>
 </section>
 
@@ -80,9 +79,8 @@
 <section data-aos="fade-up">
     <div class="section-title"><h2>Live Server Banner</h2></div>
     <div style="display:flex; justify-content:center;">
-        <!-- Start of GS4u.net informer 450x658 -->
+        <!-- GS4u.net Banner -->
         <iframe src="https://www.gs4u.net/en/webmod/frame-map:104;splr:1;players:210;mfs:100;mac:6d6d6d;mahc:8f8f8f;sna:d61313;mbg:030303;bg:030202;fg:ffffff;snb:666666;itc:aaaaaa;shs:1;/s/410064.html" frameborder="0" scrolling="no" width="450" height="658" marginwidth="0" marginheight="0"></iframe>
-        <!-- End of GS4u.net informer 450x658 -->
     </div>
 </section>
 
@@ -118,10 +116,14 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
-    function copyIP(){navigator.clipboard.writeText('151.243.226.80:7777'); alert('Server IP copied: 151.243.226.80:7777');}
 
-    async function updateServerData(){
-        try{
+    function copyIP(){
+        navigator.clipboard.writeText('151.243.226.80:7777');
+        alert('Server IP copied: 151.243.226.80:7777');
+    }
+
+    async function updateServerData() {
+        try {
             let res = await fetch('/api/samp');
             let data = await res.json();
 
@@ -129,14 +131,15 @@
             document.getElementById('status').innerText = data.online ? 'Online' : 'Offline';
             document.getElementById('playerList').innerHTML = data.playersList.length ? data.playersList.join('<br>') : 'No players online';
 
-        } catch(e){
+        } catch (err) {
             document.getElementById('players').innerText = 'Error';
             document.getElementById('status').innerText = 'Offline';
             document.getElementById('playerList').innerText = 'Unable to load players';
         }
     }
+
     updateServerData();
-    setInterval(updateServerData, 30000);
+    setInterval(updateServerData, 30000); // refresh every 30 seconds
 </script>
 
 </body>
