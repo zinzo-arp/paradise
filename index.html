@@ -1,171 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paradise Roleplay | Official City</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Roleplay | SA-MP Mobile</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-body{
-  min-height:100vh;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
-}
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-/* HEADER */
-.top{
-  text-align:center;
-  padding:50px 20px 30px;
-}
-.logo{
-  width:150px;
-  margin-bottom:15px;
-  animation:float 3s ease-in-out infinite;
-}
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-  100%{transform:translateY(0)}
-}
-.top h1{
-  font-size:3rem;
-  color:#00ffcc;
-}
-.top p{opacity:.85}
-
-/* HERO */
-.hero{
-  margin:20px;
-  padding:60px 25px;
-  border-radius:20px;
-  background:linear-gradient(
-    135deg,
-    rgba(0,255,204,.15),
-    rgba(0,0,0,.35)
-  );
-  text-align:center;
-}
-.hero h2{
-  font-size:2.4rem;
-  color:#00ffcc;
-}
-.hero p{margin:15px 0 25px}
-
-/* BUTTONS */
-.btn{
-  padding:14px 34px;
-  border-radius:30px;
-  border:none;
-  font-weight:bold;
-  cursor:pointer;
-}
-.discord{
-  background:#5865F2;
-  color:#fff;
-}
-
-/* FLOATING */
-.floating{
-  position:fixed;
-  right:15px;
-  bottom:15px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.float-btn{
-  padding:12px 18px;
-  border-radius:30px;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  color:#fff;
-}
-.whatsapp{
-  background:#25D366;
-  color:#000;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:25px;
-  opacity:.7;
-}
-</style>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body {background: linear-gradient(135deg, #0a0f1e, #0e1b2c); color: #fff; overflow-x:hidden;}
+        header {height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; flex-direction:column;}
+        header img {width:160px; margin-bottom:20px; animation:float 3s ease-in-out infinite;}
+        @keyframes float {0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); }}
+        header h1 {font-size:3rem; font-weight:700;}
+        header p {margin-top:10px; font-size:1.2rem; color:#9adfff;}
+        .buttons {margin-top:30px;}
+        .btn {padding:14px 30px; border-radius:30px; border:none; font-size:1rem; cursor:pointer; margin:10px; transition:0.3s;}
+        .btn-primary {background:#1abc9c; color:#000;}
+        .btn-primary:hover {background:#16a085; transform:scale(1.05);}
+        section {padding:80px 10%;}
+        .section-title {text-align:center; margin-bottom:50px;}
+        .section-title h2 {font-size:2.5rem;}
+        .about {text-align:center; color:#cfd8dc;}
+        .features {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px;}
+        .feature-card {background: rgba(255,255,255,0.05); padding:30px; border-radius:15px; text-align:center; transition:0.3s;}
+        .feature-card:hover {transform:translateY(-10px); background:rgba(26,188,156,0.2);}
+        footer {background:#050a18; padding:30px; text-align:center; color:#777;}
+        @media(max-width:768px){header h1{font-size:2.2rem;}}
+    </style>
 </head>
-
 <body>
 
-<!-- BACKGROUND MUSIC -->
-<audio id="bg-music" loop preload="auto">
-  <source src="RAIZHELL, CLOUD ZERO - KILL ZONE [NCS Release].mp3" type="audio/mpeg">
-</audio>
+<header>
+    <img src="https://i.ibb.co/yBR5xzMz/logo.png" alt="Paradise Roleplay Logo">
+    <h1>Paradise Roleplay</h1>
+    <p>SA-MP Mobile Roleplay Server</p>
+    <p><strong>IP:</strong> 151.243.226.80:7777</p>
+    <div class="buttons">
+        <button class="btn btn-primary" onclick="copyIP()">Join Server</button>
+    </div>
+</header>
 
-<!-- HEADER -->
-<div class="top">
-  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="logo" alt="Paradise Logo">
-  <h1>Paradise Roleplay</h1>
-  <p>Official SA-MP Roleplay City</p>
-</div>
+<section data-aos="fade-up">
+    <div class="section-title"><h2>About Paradise RP</h2></div>
+    <p class="about">Paradise Roleplay is a professional SA-MP Mobile roleplay server offering realistic gameplay, custom systems, active staff, and a friendly roleplay community.</p>
+</section>
 
-<!-- HERO -->
-<div class="hero">
-  <h2>Enter the Paradise City</h2>
-  <p>Serious Roleplay • Mobile Friendly</p>
-  <button class="btn discord" onclick="copyIP()">CONNECT NOW</button>
-  <p id="copy-msg"></p>
-</div>
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Server Features</h2></div>
+    <div class="features">
+        <div class="feature-card">Police / Army / EMS</div>
+        <div class="feature-card">Gangs & Mafias</div>
+        <div class="feature-card">Business System</div>
+        <div class="feature-card">Jobs & Economy</div>
+        <div class="feature-card">Custom Maps</div>
+        <div class="feature-card">Active Administration</div>
+    </div>
+</section>
 
-<!-- FLOATING BUTTONS -->
-<div class="floating">
-  <a href="#" class="float-btn discord">Discord</a>
-  <a href="#" class="float-btn whatsapp">WhatsApp</a>
-  <button class="float-btn discord" onclick="toggleMusic()">🎵 Music</button>
-</div>
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Server Statistics</h2></div>
+    <div class="features">
+        <div class="feature-card"><h3 id="players">Loading...</h3><p>Online Players</p></div>
+        <div class="feature-card"><h3 id="status">Checking...</h3><p>Server Status</p></div>
+        <div class="feature-card"><h3>24/7</h3><p>Uptime</p></div>
+    </div>
+</section>
+
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Online Players</h2></div>
+    <div class="feature-card" id="playerList">Loading player list...</div>
+</section>
+
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Staff Team</h2></div>
+    <div class="features">
+        <div class="feature-card">Owner<br><strong>Paradise</strong></div>
+        <div class="feature-card">Co-Owner<br><strong>Admin</strong></div>
+        <div class="feature-card">Head Admin<br><strong>Manager</strong></div>
+    </div>
+</section>
+
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Gallery</h2></div>
+    <div class="features">
+        <div class="feature-card">Screenshot 1</div>
+        <div class="feature-card">Screenshot 2</div>
+        <div class="feature-card">Screenshot 3</div>
+    </div>
+</section>
+
+<section data-aos="fade-up">
+    <div class="section-title"><h2>Join Our Community</h2></div>
+    <div style="text-align:center">
+        <a href="#" class="btn btn-primary">Join Discord</a>
+    </div>
+</section>
 
 <footer>
-© 2025 Paradise Roleplay
+    <p>© 2025 Paradise Roleplay | All Rights Reserved</p>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({ duration: 1000, once: true });
+    function copyIP(){navigator.clipboard.writeText('151.243.226.80:7777'); alert('Server IP copied: 151.243.226.80:7777');}
 
-  const music = document.getElementById("bg-music");
-  music.volume = 0.25;
-
-  // Play music after first user interaction (browser rule)
-  document.addEventListener("click", () => {
-    if (music.paused) {
-      music.play().catch(()=>{});
+    // Vercel Node.js backend API endpoint for live SA-MP
+    async function updateServerData(){
+        try{
+            let res = await fetch('/api/samp');
+            let data = await res.json();
+            document.getElementById('players').innerText = data.online ? `${data.players} / ${data.maxplayers}` : '0';
+            document.getElementById('status').innerText = data.online ? 'Online' : 'Offline';
+            document.getElementById('playerList').innerHTML = data.playersList.length ? data.playersList.join('<br>') : 'No players online';
+        }catch(e){
+            document.getElementById('players').innerText = 'Error';
+            document.getElementById('status').innerText = 'Offline';
+            document.getElementById('playerList').innerText = 'Unable to load players';
+        }
     }
-  }, { once:true });
-
-  window.toggleMusic = function(){
-    if(music.paused){
-      music.play();
-    }else{
-      music.pause();
-    }
-  };
-
-  window.copyIP = function(){
-    const ip = "151.243.226.80:7777";
-    navigator.clipboard.writeText(ip).then(()=>{
-      document.getElementById("copy-msg").innerText = "✅ IP Copied";
-    }).catch(()=>{
-      document.getElementById("copy-msg").innerText = ip;
-    });
-  };
-
-});
+    updateServerData();
+    setInterval(updateServerData, 30000); // refresh every 30s
 </script>
 
 </body>
