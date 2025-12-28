@@ -78,6 +78,15 @@
 </section>
 
 <section data-aos="fade-up">
+    <div class="section-title"><h2>Live Server Banner</h2></div>
+    <div style="display:flex; justify-content:center;">
+        <!-- Start of GS4u.net informer 450x658 -->
+        <iframe src="https://www.gs4u.net/en/webmod/frame-map:104;splr:1;players:210;mfs:100;mac:6d6d6d;mahc:8f8f8f;sna:d61313;mbg:030303;bg:030202;fg:ffffff;snb:666666;itc:aaaaaa;shs:1;/s/410064.html" frameborder="0" scrolling="no" width="450" height="658" marginwidth="0" marginheight="0"></iframe>
+        <!-- End of GS4u.net informer 450x658 -->
+    </div>
+</section>
+
+<section data-aos="fade-up">
     <div class="section-title"><h2>Staff Team</h2></div>
     <div class="features">
         <div class="feature-card">Owner<br><strong>Paradise</strong></div>
@@ -111,22 +120,23 @@
     AOS.init({ duration: 1000, once: true });
     function copyIP(){navigator.clipboard.writeText('151.243.226.80:7777'); alert('Server IP copied: 151.243.226.80:7777');}
 
-    // Vercel Node.js backend API endpoint for live SA-MP
     async function updateServerData(){
         try{
             let res = await fetch('/api/samp');
             let data = await res.json();
-            document.getElementById('players').innerText = data.online ? `${data.players} / ${data.maxplayers}` : '0';
+
+            document.getElementById('players').innerText = data.online ? `${data.players} / ${data.maxplayers}` : 'Offline';
             document.getElementById('status').innerText = data.online ? 'Online' : 'Offline';
             document.getElementById('playerList').innerHTML = data.playersList.length ? data.playersList.join('<br>') : 'No players online';
-        }catch(e){
+
+        } catch(e){
             document.getElementById('players').innerText = 'Error';
             document.getElementById('status').innerText = 'Offline';
             document.getElementById('playerList').innerText = 'Unable to load players';
         }
     }
     updateServerData();
-    setInterval(updateServerData, 30000); // refresh every 30s
+    setInterval(updateServerData, 30000);
 </script>
 
 </body>
