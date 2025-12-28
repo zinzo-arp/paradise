@@ -14,33 +14,14 @@ body{
   color:#fff;
 }
 
-/* ===== HEADER ===== */
-.top{
-  text-align:center;
-  padding:50px 20px 30px;
-}
-
-.logo{
-  width:150px;
-  max-width:80%;
-  margin-bottom:15px;
-  animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-  100%{transform:translateY(0)}
-}
-
-.top h1{
-  font-size:3rem;
-  color:#00ffcc;
-}
-
+/* HEADER */
+.top{text-align:center;padding:50px 20px 30px}
+.logo{width:150px;margin-bottom:15px;animation:float 3s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+.top h1{font-size:3rem;color:#00ffcc}
 .top p{opacity:.85}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   margin:20px;
   padding:60px 25px;
@@ -48,29 +29,20 @@ body{
   background:linear-gradient(135deg,rgba(0,255,204,.15),rgba(0,0,0,.35));
   text-align:center;
 }
-
-.hero h2{
-  font-size:2.4rem;
-  color:#00ffcc;
-}
-
+.hero h2{font-size:2.4rem;color:#00ffcc}
 .hero p{margin:15px 0 25px}
 
-/* ===== BUTTONS ===== */
+/* BUTTON */
 .btn{
   padding:14px 34px;
   border-radius:30px;
   border:none;
   font-weight:bold;
   cursor:pointer;
-  text-decoration:none;
-  display:inline-block;
 }
-
 .discord{background:#5865F2;color:#fff}
-.whatsapp{background:#25D366;color:#000}
 
-/* ===== CONTENT ===== */
+/* CONTENT */
 .container{
   max-width:1100px;
   margin:auto;
@@ -86,16 +58,62 @@ body{
   padding:25px;
   box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
+.card h3{color:#00ffcc}
 
-.card h3{
-  color:#00ffcc;
-  margin-bottom:10px;
+/* NEWS */
+.news-card{
+  background:rgba(0,0,0,.3);
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:15px;
+  cursor:pointer;
+  transition:.3s;
+}
+.news-card:hover{transform:scale(1.02)}
+.news-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+.news-content{padding:15px}
+.news-content h4{color:#00ffcc}
+.news-content span{font-size:.85rem;opacity:.7}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.modal-box{
+  background:#111;
+  border-radius:18px;
+  max-width:500px;
+  width:90%;
+  overflow:hidden;
+}
+.modal-box img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.modal-body{
+  padding:20px;
+}
+.modal-body h4{color:#00ffcc;margin-bottom:5px}
+.modal-body span{font-size:.85rem;opacity:.7}
+.modal-body p{margin-top:10px}
+.close{
+  text-align:right;
+  cursor:pointer;
+  font-size:1.4rem;
 }
 
-.online{color:#00ffcc}
-.offline{color:#ff4d4d}
-
-/* ===== FLOATING ===== */
+/* FLOATING */
 .floating{
   position:fixed;
   right:15px;
@@ -103,54 +121,40 @@ body{
   display:flex;
   flex-direction:column;
   gap:10px;
-  z-index:999;
 }
-
 .float-btn{
   padding:12px 18px;
   border-radius:30px;
   font-weight:bold;
   border:none;
   cursor:pointer;
-  text-decoration:none;
   color:#fff;
-  box-shadow:0 6px 20px rgba(0,0,0,.4);
 }
+.whatsapp{background:#25D366;color:#000}
 
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:25px;
-  opacity:.7;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:600px){
-  .top h1{font-size:2.2rem}
-  .hero h2{font-size:2rem}
-  .logo{width:110px}
-}
+/* FOOTER */
+footer{text-align:center;padding:25px;opacity:.7}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 BACKGROUND MUSIC -->
+<!-- MUSIC -->
 <audio id="bg-music" loop>
   <source src="RAIZHELL, CLOUD ZERO - KILL ZONE [NCS Release].mp3" type="audio/mpeg">
 </audio>
 
 <!-- HEADER -->
 <div class="top">
-  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" alt="Paradise Roleplay Logo" class="logo">
+  <img src="https://i.ibb.co/1YnKbvLT/paradise-logo.png" class="logo">
   <h1>Paradise Roleplay</h1>
-  <p>Official SA-MP Mobile Roleplay City</p>
+  <p>Official SA-MP Roleplay City</p>
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <h2>Enter the Paradise City</h2>
-  <p>Serious roleplay • Mobile support • Active staff</p>
+  <p>Serious Roleplay • Mobile Friendly</p>
   <button class="btn discord" onclick="copyIP()">CONNECT NOW</button>
   <p id="copy-msg"></p>
 </div>
@@ -159,84 +163,86 @@ footer{
 <div class="container">
 
   <div class="card">
-    <h3>Server Status</h3>
-    <p id="status">Loading...</p>
-    <p>Players: <strong id="players">0</strong></p>
-  </div>
+    <h3>Latest News</h3>
 
-  <div class="card">
-    <h3>Online Players</h3>
-    <ul id="player-list"></ul>
-  </div>
+    <div class="news-card" onclick="openNews(
+      'Server Grand Opening',
+      '2025-01-10',
+      'https://images.unsplash.com/photo-1605902711622-cfb43c4437d1',
+      'Paradise Roleplay is officially open. Join now and start your RP journey!'
+    )">
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1">
+      <div class="news-content">
+        <h4>Server Grand Opening</h4>
+        <span>📅 2025-01-10</span>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Why Paradise?</h3>
-    ✔ Serious Roleplay<br>
-    ✔ Custom Jobs<br>
-    ✔ Police / Gangs<br>
-    ✔ Events & Economy
+    <div class="news-card" onclick="openNews(
+      'Police Department Update',
+      '2025-01-18',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+      'New police ranks, patrol system, and missions added.'
+    )">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+      <div class="news-content">
+        <h4>Police Department Update</h4>
+        <span>📅 2025-01-18</span>
+      </div>
+    </div>
+
   </div>
 
 </div>
 
-<!-- FLOATING -->
+<!-- MODAL -->
+<div class="modal" id="newsModal">
+  <div class="modal-box">
+    <img id="modalImg">
+    <div class="modal-body">
+      <div class="close" onclick="closeNews()">✖</div>
+      <h4 id="modalTitle"></h4>
+      <span id="modalDate"></span>
+      <p id="modalText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FLOAT -->
 <div class="floating">
-  <a href="https://discord.gg/YOURDISCORD" class="float-btn discord" target="_blank">Discord</a>
-  <a href="https://chat.whatsapp.com/YOURWHATSAPP" class="float-btn whatsapp" target="_blank">WhatsApp</a>
+  <a href="#" class="float-btn discord">Discord</a>
+  <a href="#" class="float-btn whatsapp">WhatsApp</a>
   <button class="float-btn discord" onclick="toggleMusic()">🎵 Music</button>
 </div>
 
 <footer>
-© 2025 Paradise Roleplay | All Rights Reserved
+© 2025 Paradise Roleplay
 </footer>
 
 <script>
-// 🎵 MUSIC
+// MUSIC
 const music=document.getElementById('bg-music');
-music.volume=0.25;
+music.volume=.25;
 document.addEventListener('click',()=>{if(music.paused)music.play()},{once:true});
 function toggleMusic(){music.paused?music.play():music.pause()}
 
-// 📋 COPY IP
+// COPY IP
 function copyIP(){
   navigator.clipboard.writeText('151.243.226.80:7777');
-  document.getElementById('copy-msg').innerText='✅ Server IP Copied';
+  document.getElementById('copy-msg').innerText='✅ IP Copied';
 }
 
-// 🌐 SA-MP API
-const API='https://corsproxy.io/?https://api.samp-servers.net/v2/server/151.243.226.80:7777';
-const statusEl=document.getElementById('status');
-const playersEl=document.getElementById('players');
-const listEl=document.getElementById('player-list');
-
-function loadData(){
-  fetch(API)
-    .then(r=>r.json())
-    .then(d=>{
-      if(d.online){
-        statusEl.innerHTML='🟢 Online';
-        statusEl.className='online';
-        playersEl.innerText=`${d.players}/${d.maxplayers}`;
-        listEl.innerHTML='';
-        (d.players_list||[]).forEach(p=>{
-          const li=document.createElement('li');
-          li.textContent=p.name;
-          listEl.appendChild(li);
-        });
-      }else{
-        statusEl.innerHTML='🔴 Offline';
-        statusEl.className='offline';
-        playersEl.innerText='0';
-        listEl.innerHTML='<li>Server Offline</li>';
-      }
-    })
-    .catch(()=>{
-      statusEl.innerHTML='⚠ Unavailable';
-    });
+// NEWS MODAL
+function openNews(title,date,img,text){
+  document.getElementById('modalTitle').innerText=title;
+  document.getElementById('modalDate').innerText='📅 '+date;
+  document.getElementById('modalImg').src=img;
+  document.getElementById('modalText').innerText=text;
+  document.getElementById('newsModal').style.display='flex';
 }
-
-loadData();
-setInterval(loadData,30000);
+function closeNews(){
+  document.getElementById('newsModal').style.display='none';
+}
 </script>
 
 </body>
